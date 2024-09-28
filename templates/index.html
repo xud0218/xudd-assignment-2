@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMeans Clustering</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        #plot {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>KMeans Clustering</h1>
+    <div>
+        <select id="init-method">
+            <option value="random">Random</option>
+            <option value="farthest">Farthest First</option>
+            <option value="kmeans++">KMeans++</option>
+        </select>
+    </div>
+    <div>
+        <button onclick="generateDataset()">Generate Dataset</button>
+        <button onclick="stepThroughKMeans()">Step Through</button>
+        <button onclick="completeKMeans()">Complete to Convergence</button>
+        <button onclick="resetKMeans()">Reset</button>
+    </div>
+    <div id="convergence-warning" style="display: none; color: red; text-align: center; font-weight: bold;">
+        The algorithm has converged! No further steps can be made.
+    </div>
+    <div id="plot"></div>
+</body>
+</html>
